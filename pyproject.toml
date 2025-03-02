@@ -1,0 +1,37 @@
+[tool.poetry]
+name = "demo"
+version = "1.0"
+description = "demo"
+authors = ["Zhongyu Shi <shizhongyu128@126.com>"]
+readme = "README.md"
+packages = [
+    {include = "*", from = "src"}
+]
+
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+
+
+[tool.poetry.dependencies]
+python = "^3.11"
+requests = "^2.32.3"
+pylint = "^3.3.4"
+flake8 = "^7.1.2"
+black = "^25.1.0"
+pytest = "^8.3.4"
+pytest-cov = "^6.0.0"
+
+[tool.poetry.scripts]
+hello = "hello_app.hello_main:main"
+bye = "bye_app.bye_main:main"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.1.1"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "--cov=src --cov-report=html --cov-fail-under=90"
